@@ -4,11 +4,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 80px);
   gap: 5px;
   width: 80%;
@@ -19,21 +20,23 @@ body {
 .box {
   background-color: darkgreen;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
   padding: 5px;
 }
 
-/* --- GRID POSITIONS --- */
+/* --- Correct Grid Placements --- */
 .b1 {
   grid-column: 1 / 4;
+  grid-row: 1 / 2;
 }
 
 .b2 {
-  grid-row: 2 / 7;
   grid-column: 1 / 2;
+  grid-row: 2 / 7;
 }
 
 .b3 {
