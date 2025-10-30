@@ -1,22 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Grid Layout Design</title>
-  </head>
-  <body>
-    <div id="grid">
-      <div class="grid-item item1">1</div>
-      <div class="grid-item item2">2</div>
-      <div class="grid-item item3">3</div>
-      <div class="grid-item item4">4</div>
-      <div class="grid-item item5">5</div>
-      <div class="grid-item item6">6</div>
-      <div class="grid-item item7">7</div>
-      <div class="grid-item item8">8</div>
-      <div class="grid-item item9">9</div>
-      <div class="grid-item item10">10</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 120px);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .grid-item {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Positioning specific items according to the pattern */
+        .item-4 { grid-column: 1; grid-row: 1; }
+        .item-3 { grid-column: 2; grid-row: 1; }
+        .item-5 { grid-column: 3; grid-row: 1; }
+        .item-7 { grid-column: 4; grid-row: 1; }
+        .item-10 { grid-column: 4; grid-row: 2; }
+        .item-1 { grid-column: 1; grid-row: 2; }
+        .item-2 { grid-column: 2; grid-row: 2; }
+        .item-8 { grid-column: 3; grid-row: 2; }
+        .item-6 { grid-column: 1; grid-row: 3; }
+        .item-9 { grid-column: 2; grid-row: 3; }
+        
+        .code-section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .code-section h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .code-section pre {
+            white-space: pre-wrap;
+            line-height: 1.5;
+            font-family: 'Courier New', monospace;
+            background-color: #34495e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 100px);
+            }
+            
+            .item-4 { grid-column: 1; grid-row: 1; }
+            .item-3 { grid-column: 2; grid-row: 1; }
+            .item-5 { grid-column: 1; grid-row: 2; }
+            .item-7 { grid-column: 2; grid-row: 2; }
+            .item-10 { grid-column: 2; grid-row: 3; }
+            .item-1 { grid-column: 1; grid-row: 3; }
+            .item-2 { grid-column: 1; grid-row: 4; }
+            .item-8 { grid-column: 2; grid-row: 4; }
+            .item-6 { grid-column: 1; grid-row: 5; }
+            .item-9 { grid-column: 2; grid-row: 5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CSS Grid Layout</h1>
+            <p>Creating a custom grid layout with specific item placement</p>
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-5">5</div>
+            <div class="grid-item item-7">7</div>
+            <div class="grid-item item-10">10</div>
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-8">8</div>
+            <div class="grid-item item-6">6</div>
+            <div class="grid-item item-9">9</div>
+        </div>
+        
+        <div class="code-section">
+            <h3>CSS Grid Code:</h3>
+            <pre>
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 120px);
+    gap: 15px;
+}
+
+.item-4 { grid-column: 1; grid-row: 1; }
+.item-3 { grid-column: 2; grid-row: 1; }
+.item-5 { grid-column: 3; grid-row: 1; }
+.item-7 { grid-column: 4; grid-row: 1; }
+.item-10 { grid-column: 4; grid-row: 2; }
+.item-1 { grid-column: 1; grid-row: 2; }
+.item-2 { grid-column: 2; grid-row: 2; }
+.item-8 { grid-column: 3; grid-row: 2; }
+.item-6 { grid-column: 1; grid-row: 3; }
+.item-9 { grid-column: 2; grid-row: 3; }
+            </pre>
+        </div>
+        
+        <div class="footer">
+            <p>CSS Grid Layout Design | Responsive & Interactive</p>
+        </div>
     </div>
-  </body>
+</body>
 </html>
