@@ -5,10 +5,10 @@ body {
 
 #grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 120px);
+  grid-template-rows: 124px 124px 124px 124px 124px;
+  grid-template-columns: 242px 242px 242px 242px;
   gap: 10px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .grid-item {
@@ -20,9 +20,10 @@ body {
   justify-content: center;
 }
 
-/* Layout arrangement (matches provided image) */
+/* Layout based on provided image */
 .item1 {
   grid-column: 1 / 5;
+  grid-row: 1 / 2;
 }
 
 .item2 {
